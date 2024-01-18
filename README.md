@@ -20,4 +20,7 @@ headers = {'Content-Type': 'application/json'}
 response = requests.post(server_url, data=json.dumps(data_to_send), headers=headers)  
 
 brew install python-tk  
-brew install --cask xquartz
+brew install --cask xquartz  
+Pythonを再構築  
+pyenv uninstall 3.11.5  
+pyenv install 3.11.5  
