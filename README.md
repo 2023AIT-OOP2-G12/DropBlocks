@@ -19,6 +19,8 @@ data_to_send = {"得点": score}
 headers = {'Content-Type': 'application/json'}  
 response = requests.post(server_url, data=json.dumps(data_to_send), headers=headers)  
 
+http://10.1.53.39:5001/
+
 brew install python-tk  
 brew install --cask xquartz  
 Pythonを再構築  
