@@ -18,5 +18,5 @@ def receive_data():
     return "Data received successfully"
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)  # ポート番号を5001に変更
+    app.run(host='0.0.0.0', port=5001)  # ポート番号を5001に変更
 
