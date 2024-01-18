@@ -9,7 +9,12 @@
 <body>
     <h1>テトリス</h1>
     <button onclick="startGame()">スタート</button>
-
+    <h2>ランキング</h2>
+    <ol>
+        <p>1位: {{ ranking_data[0] }}</p>
+        <p>2位: {{ ranking_data[1] }}</p>
+        <p>3位: {{ ranking_data[2] }}</p>
+    </ol>
     <script>
         function startGame() {
             window.location.href = '/game';

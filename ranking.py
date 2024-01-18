@@ -30,9 +30,7 @@ def use_ranking(score):
     file_path = "scores.json"
     scores = load_scores(file_path)
     update_score(scores,score)
-    return scores
-    
-    
+    return scores[:3] # 上位3つのスコアのみ送る
 
 if __name__ == "__main__":
     rank=use_ranking(900)
