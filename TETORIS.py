@@ -122,6 +122,24 @@ def deleteLine():
             exit()
 
 ####################  ゲームループ  ####################    
+def on_button_click():
+    print("ボタンがクリックされました")
+    root.destroy()
+
+
+# Tkinterウィンドウの作成
+root = tk.Tk()
+root.title("Tkinterのボタン例")
+# タイトルバーを非表示にする
+root.overrideredirect(True)
+
+# ボタンの作成
+button = tk.Button(root, text="クリックしてください", command=on_button_click)
+
+# ボタンの配置
+button.pack()
+root.mainloop()
+
 win = tk.Tk()
 win.geometry("340x630")
 win.title("Rough TETRIS")
