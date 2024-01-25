@@ -30,3 +30,6 @@ pyenv install 3.11.5
 テトリスのホールド等
 https://qiita.com/sekishoku/items/20a88d92bc64b5620d49
 https://lets-csharp.com/tetris-cpp-hold/
+
+
+仕様
