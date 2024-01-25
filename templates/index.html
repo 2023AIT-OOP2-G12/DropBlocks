@@ -7,14 +7,27 @@
     <title>Tetris</title>
 </head>
 <body>
-    <h1>テトリス</h1>
-    <button onclick="startGame()">スタート</button>
-    <h2>ランキング</h2>
-    <ol>
-        <p>1位: {{ ranking_data[0] }}</p>
-        <p>2位: {{ ranking_data[1] }}</p>
-        <p>3位: {{ ranking_data[2] }}</p>
-    </ol>
+    <div id="background"></div> <!-- 追加: 背景を表示するための要素 -->
+
+    <h1 id="title">
+        <span class="red">T</span>
+        <span class="orange">E</span>
+        <span class="yellow">T</span>
+        <span class="green">R</span>
+        <span class="cyan">I</span>
+        <span class="purple">S</span>
+    </h1>
+    
+
+    <div id="ranking">
+        <h2>ランキング</h2>
+        <ol>
+            <li>1位: 10000</li>
+            <li>2位: 8000</li>
+            <li>3位: 6000</li>
+        </ol>
+    </div>
+
     <script>
         function startGame() {
             window.location.href = '/game';
