@@ -22,9 +22,9 @@
     <div id="ranking">
         <h2>ランキング</h2>
         <ol>
-            <p>1位: {{ ranking_data[0] }}</p>
-            <p>2位: {{ ranking_data[1] }}</p>
-            <p>3位: {{ ranking_data[2] }}</p>
+            {% for name, score in ranking_data.items() %}
+                <li>{{loop.index}}位 {{ name }}: {{ score }}</li>
+            {% endfor %}
         </ol>
     </div>
 
