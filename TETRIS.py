@@ -5,6 +5,12 @@ import tkinter as tk
 import random
 from tkinter import messagebox
 
+#################### サーバーを指定する ####################
+# サーバーのIPアドレスをip_addressに入力してください
+ip_address = "10.1.53.45"
+# サーバーのポート番号をport_numberに入力してください。
+port_number = "5001"
+
 SIZE = 30       #ブロックのサイズ
 moveX = 4       #テトロミノ表示位置（横）
 moveY = 0       #テトロミノ表示位置（縦）
@@ -114,7 +120,7 @@ def deleteLine():
     for i in range(1, 11):
         if 7 != field[1][i]:
             ## スコア送信
-            server_url = "http://10.1.53.45:5000/receive_data"
+            server_url = "http://"+ip_address+":"+port_number+"/receive_data"
             data_to_send = {"得点": score}
             headers = {'Content-Type': 'application/json'}
             response = requests.post(server_url, data=json.dumps(data_to_send), headers=headers)
