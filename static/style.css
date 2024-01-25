@@ -1,11 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 50px;
+    background-image: url('2l5y30qf.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* 背景を固定する設定 */
+    margin: 0; /* ページの余白を削除 */
+    animation: scrollBackground 10s linear infinite;
+}
+
+@keyframes scrollBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
 }
 
 canvas {
     border: 1px solid #000;
     display: block;
     margin: 20px auto;
+}
+
+#title {
+        font-size: 100px;
+        font-family: 'DotGothic16', sans-serif;
+        margin: 20px auto; /* 上下の余白を20pxにして、左右を自動中央揃えに変更 */
+        color: white;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        text-align: center; /* テキストを中央揃えに変更 */
+    }
+
+
+#title span {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    color: #000; /* テキストの色を黒に設定 */
+}
+
+#title span::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: #FFF; /* 縁取りの色を白に設定 */
+}
+
+#start-button, #ranking {
+    font-family: 'DotGothic16', sans-serif; /* 共通のフォント設定 */
+}
+
+#ranking {
+    margin: 20px auto; /* 上下の余白を20pxにして、左右を自動中央揃えに変更 */
+    border: 2px solid #000;
+    padding: 10px;
+    width: 200px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+#ranking h2 {
+    font-size: 28px;
+}
+
+#ranking ol {
+    list-style: none;
+    padding: 0;
+}
+
+#ranking li {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
 }
