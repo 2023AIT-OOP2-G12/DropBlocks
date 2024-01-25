@@ -4,7 +4,7 @@ import json
 import tkinter as tk
 import random
 from tkinter import messagebox
-import simpleaudio as sa#simpleaudioのインストールが必要
+import simpleaudio as sa #simpleaudioのインストールが必要
 import threading
 
 #################### サーバーを指定する ####################
