@@ -142,7 +142,7 @@ root.mainloop()
 
 win = tk.Tk()
 win.geometry("340x630")
-win.title("Rough TETRIS")
+win.title("TETRIS")
 can = tk.Canvas(win, width=12*SIZE, height=21*SIZE)
 can.place(x=-10, y=0)
 var = tk.StringVar()
