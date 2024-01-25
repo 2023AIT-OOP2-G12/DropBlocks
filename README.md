@@ -31,6 +31,8 @@ pyenv install 3.11.5
 https://qiita.com/sekishoku/items/20a88d92bc64b5620d49
 https://lets-csharp.com/tetris-cpp-hold/
 
+#使用音源の提供元
+https://pixabay.com/ja/music/tetris-theme-korobeiniki-arranged-for-piano-186249/
 
 # 仕様
 
