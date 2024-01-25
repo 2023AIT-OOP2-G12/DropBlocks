@@ -4,12 +4,16 @@ import json
 import tkinter as tk
 import random
 from tkinter import messagebox
+import simpleaudio as sa#simpleaudioのインストールが必要
+import threading
 
 #################### サーバーを指定する ####################
 # サーバーのIPアドレスをip_addressに入力してください
 ip_address = "10.1.53.45"
 # サーバーのポート番号をport_numberに入力してください。
 port_number = "5001"
+
+global play_obj  # グローバル変数として宣言
 
 SIZE = 30       #ブロックのサイズ
 moveX = 4       #テトロミノ表示位置（横）
@@ -41,6 +45,17 @@ for y in range(22):
             sub.append(7)
     field.append(sub)
 
+#音楽再生
+def play_music(file_path):
+    global play_obj
+    wave_obj = sa.WaveObject.from_wave_file(file_path)
+    play_obj = wave_obj.play()
+
+#音楽ストップ
+def music_stop():
+    global play_obj
+    if play_obj.is_playing():
+        play_obj.stop()
 #テトロミノを表示する関数
 def drawTetris():
     for i in range(4):
@@ -119,11 +134,14 @@ def deleteLine():
             score += 800-timer
     for i in range(1, 11):
         if 7 != field[1][i]:
+
+            music_stop()  # 音楽を停止する
             ## スコア送信
             server_url = "http://"+ip_address+":"+port_number+"/receive_data"
             data_to_send = {"得点": score}
             headers = {'Content-Type': 'application/json'}
             response = requests.post(server_url, data=json.dumps(data_to_send), headers=headers)
+
             messagebox.showinfo("information", "GAME OVER !")
             exit()
 
@@ -141,6 +159,14 @@ root.overrideredirect(True)
 
 # ボタンの作成
 button = tk.Button(root, text="クリックしてください", command=on_button_click)
+
+
+# 音楽ファイルのパス
+music_file = 'tetris-theme-korobeiniki-arranged-for-piano-186249.wav'
+
+# 音楽再生用のスレッドを作成し、開始する
+music_thread = threading.Thread(target=play_music, args=(music_file,))
+music_thread.start()
 
 # ボタンの配置
 button.pack()
