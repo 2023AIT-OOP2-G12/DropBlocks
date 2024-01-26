@@ -5,6 +5,8 @@ import json
 import tkinter as tk
 import random
 from tkinter import messagebox
+import simpleaudio as sa #simpleaudioのインストールが必要
+import threading
 
 #################### サーバを指定する ####################
 # サーバのIPアドレスをip_addressに入力してください
@@ -13,7 +15,7 @@ ip_address = ""
 port_number = 5000
 
 username = "名無しさん" # ユーザ名を入力
-
+global play_obj  # グローバル変数として宣言
 SIZE = 30       #ブロックのサイズ
 moveX = 4       #テトロミノ表示位置（横）
 moveY = 0       #テトロミノ表示位置（縦）
@@ -43,6 +45,18 @@ for y in range(22):
         else :
             sub.append(7)
     field.append(sub)
+
+#音楽再生
+def play_music(file_path):
+    global play_obj
+    wave_obj = sa.WaveObject.from_wave_file(file_path)
+    play_obj = wave_obj.play()
+
+#音楽ストップ
+def music_stop():
+    global play_obj
+    if play_obj.is_playing():
+        play_obj.stop()
 
 #テトロミノを表示する関数
 def drawTetris():
@@ -122,6 +136,7 @@ def deleteLine():
             score += 800-timer
     for i in range(1, 11):
         if 7 != field[1][i]:
+            music_stop()  # 音楽を停止する
             ## スコア送信
             server_url = "http://"+ip_address+":"+port_number+"/receive_data"
             data_to_send = {"ユーザ名":username,"得点": score}
