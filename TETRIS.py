@@ -174,11 +174,15 @@ root.mainloop()
 
 # サーバに接続できるか確認します
 try:
-    # print((ip_address,int(port_number)))
-    socket.create_connection((ip_address,int(port_number)),timeout=3)
+    # print((ip_address,int(port_number or 0)))
+    socket.create_connection((ip_address,int(port_number or 0)),timeout=3)
 except socket.error as e:
     # サーバに接続できなければ終了します
     messagebox.showinfo("information", "サーバに接続できませんでした。プログラムを再起動して設定し直してください。")
+    exit()
+except ValueError as e:
+    # ポート番号に数字以外の入力は受け付けません。
+    messagebox.showinfo("information", "ポート番号は半角数字で入力してください。プログラムを再起動して設定し直してください。")
     exit()
 
 win = tk.Tk()

@@ -12,9 +12,10 @@ def index():
 
 @app.route('/receive_data', methods=['POST'])
 def receive_data():
-    name = None #テトリス側から受け取る
-    data = request.json  # POSTで送信されたJSONデータを受け取る例
-    use_ranking(name,data)
+    data = request.json  # POSTで送信されたJSONデータを受け取る
+    name = data["ユーザ名"]
+    score = data["得点"]
+    use_ranking(name,score)
     print("Received data:", data)
     return "Data received successfully"
 
