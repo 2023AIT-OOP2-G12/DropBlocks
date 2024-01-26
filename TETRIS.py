@@ -187,6 +187,13 @@ button = tk.Button(root, text="ゲーム開始", command=on_button_click)
 button.pack()
 root.mainloop()
 
+# 音楽ファイルのパス
+music_file = 'tetris-theme-korobeiniki-arranged-for-piano-186249.wav'
+
+# 音楽再生用のスレッドを作成し、開始する
+music_thread = threading.Thread(target=play_music, args=(music_file,))
+music_thread.start()
+
 # サーバに接続できるか確認します
 try:
     # print((ip_address,int(port_number or 0)))
