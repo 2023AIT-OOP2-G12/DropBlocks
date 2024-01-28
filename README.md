@@ -57,7 +57,9 @@ https://pixabay.com/ja/music/tetris-theme-korobeiniki-arranged-for-piano-186249/
 ・ゲームが終了した時にスコアをランキング画面に自動的に送信する。  
 ・
 
-# TETRIS.pyの実行に必要なバージョン情報
+
+# client/TETRIS.pyの実行
+## client/TETRIS.pyの実行に必要なバージョン情報
 - Flask==3.0.1
 - Requests==2.31.0
 - simpleaudio==1.0.4
@@ -70,3 +72,11 @@ $ pip install flask==3.0.1
 $ pip install requests==2.31.0
 $ pip install simpleaudio==1.0.4
 ```
+
+## client/TETRIS.pyを実行する
+clientフォルダをダウンロードした後、以下のようにターミナルで実行します。
+```sh
+$ cd {clientフォルダの場所}/
+$ python TETRIS.py
+```
+画面が表示されたらユーザ名を入力して、提示されたサーバのIPアドレスとポート番号を入力して「ゲーム開始」ボタンを押します。
