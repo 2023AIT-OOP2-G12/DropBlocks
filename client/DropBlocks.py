@@ -1,4 +1,4 @@
-#################### Rough TETRIS ####################
+#################### Rough DropBlocks ####################
 import requests
 import socket
 import json
@@ -17,16 +17,16 @@ port_number = 5000
 username = "名無しさん" # ユーザ名を入力
 global play_obj  # グローバル変数として宣言
 SIZE = 30       #ブロックのサイズ
-moveX = 4       #テトロミノ表示位置（横）
-moveY = 0       #テトロミノ表示位置（縦）
-type = random.randint(0, 6)        #テトロミノのタイプ
+moveX = 4       #ブロック表示位置（横）
+moveY = 0       #ブロック表示位置（縦）
+type = random.randint(0, 6)        #ブロックのタイプ
 
 timer = 800     #ゲームスピードコントロール
 score = 0       #スコア
 
 color = ["magenta", "blue", "cyan", "yellow", "orange", "red", "green", "black", "white"]
 
-#テトロミノデータ
+#ブロックデータ
 tetroT = [-1, 0, 0, 0, 1, 0, 0, 1]
 tetroJ = [-1, 0, 0, 0, 1, 0, 1, 1]
 tetroI = [-1, 0, 0, 0, 1, 0, 2, 0]
@@ -58,7 +58,7 @@ def music_stop():
     if play_obj.is_playing():
         play_obj.stop()
 
-#テトロミノを表示する関数
+#ブロックを表示する関数
 def drawTetris():
     for i in range(4):
         x = (tetro[type][i*2]+moveX)*SIZE
@@ -72,7 +72,7 @@ def drawField():
             outLine=0 if color[field[i+1][j]]=="white" else 1   #白いブロックは枠無しで表示
             can.create_rectangle(j*SIZE, i*SIZE, (j+1)*SIZE, (i+1)*SIZE, fill=color[field[i+1][j]], width=outLine)
 
-#テトロミノを動かす関数
+#ブロックを動かす関数
 def keyPress(event):
     global moveX, moveY
     afterX = moveX
