@@ -209,7 +209,7 @@ except ValueError as e:
 
 win = tk.Tk()
 win.geometry("340x630+300+100")
-win.title("TETRIS")
+win.title("ブロック落としゲーム")
 can = tk.Canvas(win, width=12*SIZE, height=21*SIZE)
 can.place(x=-10, y=0)
 var = tk.StringVar()
