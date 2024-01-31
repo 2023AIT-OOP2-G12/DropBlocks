@@ -23,16 +23,17 @@ def update_score(scores, name, new_score):
     sorted_scores = sorted(scores.items(), key=lambda x: x[1], reverse=True)
     scores = dict(sorted_scores[:3])  # 上位3つのスコアのみ保持
     print(f"{name} のスコアが {new_score} に更新されました。")
-    file_path = "scores.json"
+    file_path = "server/scores.json"
     save_scores(file_path, scores)
 
 def use_ranking(name, score):
     if score is None:
-        file_path = "scores.json"
+        file_path = "server/scores.json"
         scores = load_scores(file_path)
+        print(scores)
         return scores
     else:
-        file_path = "scores.json"
+        file_path = "server/scores.json"
         scores = load_scores(file_path)
         update_score(scores, name, score)
 

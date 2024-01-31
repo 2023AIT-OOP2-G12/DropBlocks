@@ -14,7 +14,9 @@ def index():
 def receive_data():
     data = request.json  # POSTで送信されたJSONデータを受け取る
     name = data["ユーザ名"]
+    #print(name)
     score = data["得点"]
+    #print(score)
     use_ranking(name,score)
     print("Received data:", data)
     return "Data received successfully"
